@@ -24,3 +24,16 @@ resource "aws_vpc" "this" {
     Env     = "lab"
   }
 }
+
+resource "aws_subnet" "public" {
+  vpc_id                  = aws_vpc.this.id
+  cidr_block              = "10.0.1.0/24"
+  availability_zone       = "ca-central-1a"
+  map_public_ip_on_launch = true
+
+  tags = {
+    Name    = "public-subnet"
+    Project = "aws-cloud-admin-foundations"
+    Env     = "lab"
+  }
+}
