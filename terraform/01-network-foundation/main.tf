@@ -10,7 +10,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "ca-central-1"
+  region = var.aws_region
 }
 
 resource "aws_vpc" "this" {
